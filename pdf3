@@ -1,0 +1,53 @@
+Etapa 1:
+Quais são os endereços físicos do adaptador de Ethernet?
+Endereço MAC PC-A:000C.CF0A.8204
+Endereço MAC PC-B:00E0.F9DC.7A11
+
+Na segunda linha da saída do comando, quais são os endereços de hardware (ou bia [burned-in
+address, endereço gravado na ROM])?
+S1 Fast Ethernet 0/1 MAC Address: 000a.41db.4a01
+
+S2 Fast Ethernet 0/1 MAC Address: 00d0.ba8a.9801
+
+Etapa 2
+Existe algum endereço MAC gravado na tabela de endereços MAC?
+R:000a.41db.4a01
+
+Quais endereços MAC estão registrados na tabela? Em que portas do switch eles estão mapeados e a
+que dispositivos pertencem? Ignore os endereços MAC que estão mapeados para a CPU.
+R: endereços mac do S1, 000a.41db.4a01. O endereço MAC S1 é mapeado para o S2
+
+Se você não havia gravado anteriormente os endereços MAC dos dispositivos de rede na Etapa 1, como
+você poderia dizer a quais dispositivos os endereços MAC pertencem, usando apenas a saída do
+comando show mac address-table? Isso funciona em todos os cenários? 
+R:o comando show mac address-table mostra a porta a qual o endereço mac esta destinado, identificando a qual dispositivo o endereço mac pertence,
+nao funciona em todos os cenarios, exemplo quando muitos endereços mac estão associadas a mesma porta.
+
+Etapa 3
+Digite rapidamente o comando show mac address-table novamente.
+A tabela de endereços MAC tem algum endereço para VLAN 1? Há outros endereços MAC listados?
+R: sim, não há outros endereços mac listado
+
+Aguarde 10 segundos, digite o comando show mac address-table e pressione Enter. Há novos
+endereços na tabela de endereços MAC? 
+R: não
+
+Etapa 4
+No PC-B, abra um prompt de comando e digite arp -a.
+Não incluindo endereços de difusão seletiva ou difusão, quantos pares de endereços IP para MAC do
+dispositivo foram aprendidos pelo ARP?
+R: nenhum
+
+No prompt de comando de PC-B, faça ping em PCA-A, S1 e S2.
+Todos os dispositivos tiveram respostas bem-sucedidas? Em caso negativo, verifique o cabeamento e as
+configurações de IP. 
+R: sim, todos os dispositivos
+
+De uma conexão de console ao S2, digite o comando show mac address-table.
+O switch adicionou outros endereços MAC à tabela de endereços MAC? Em caso afirmativo, que
+endereços e dispositivos? 
+R: sim, endereço mac do S2 Fast Ethernet, S1 Fast Ethernet, Endereço MAC PC-A, Endereço MAC PC-B
+
+No PC-B, abra um prompt de comando e digite novamente arp -a.
+A cache ARP de PC-B tem entradas adicionais para todos os dispositivos de rede que receberam pings?
+R:sim, pelo menos 3 entradas adicionais
